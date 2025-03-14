@@ -9,7 +9,7 @@ const InsightsComponent = () => {
   const [insights, setInsights] = useState([]);
 
   useEffect(() =>  {
-    fetch("http://localhost:8000/api/random-insights")
+    fetch("http://3.130.244.150:8000/api/random-insights")
     .then((response) => response.json())
       .then((data) => {
         setInsights(data);  // Set data into state
