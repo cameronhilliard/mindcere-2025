@@ -16,7 +16,7 @@ const DailyComponent = () => {
   useEffect(() => {
     const fetchTip = async () => {
       try {
-        const response = await fetch("http://3.130.244.150:8000/mc_tips");
+        const response = await fetch("https://mindcere.com/mc_tips");
         const data = await response.json();
         setHealthTitle(data.title)
         setHealthTip(data.content)
