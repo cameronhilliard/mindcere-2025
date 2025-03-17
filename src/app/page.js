@@ -7,7 +7,7 @@ import AboutComponent from "./components/AboutComponent";
 
 export default function Home() {
   return (
-    <main id="home" className="min-h-screen">
+    <main id="home" className="min-h-screen mx-auto">
       <HeaderComponent />
       <HeroComponent />
       <InsightsComponent />

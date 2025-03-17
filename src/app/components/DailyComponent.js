@@ -32,7 +32,7 @@ const DailyComponent = () => {
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
     whileInView={{ duration: 0.5, ease: "fadeIn" }}
-    className="lg:w-1/3 w-11/12 h-2/4 mt-8 p-8 bg-card shadow-lg rounded-lg shadow-glow/50"
+    className="lg:w-1/3 w-11/12 h-2/4 mt-8 p-8 bg-card shadow-lg rounded-lg shadow-glow/50 mx-auto"
 >
     <div className=''>
         <h2 className="text-2xl sm:text-3xl font-bold">Daily Tip</h2>
