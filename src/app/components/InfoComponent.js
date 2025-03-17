@@ -3,7 +3,7 @@ import * as motion from "motion/react-client"
 
 const InfoComponent = (props) => {
   return (
-    <div className='w-2/3 h-2/4 mt-8 p-8 bg-card shadow-lg rounded-lg shadow-glow/50'
+    <div className='lg:w-2/3 w-11/12 h-2/4 mt-8 p-8 bg-card shadow-lg rounded-lg shadow-glow/50'
 
 
 >
