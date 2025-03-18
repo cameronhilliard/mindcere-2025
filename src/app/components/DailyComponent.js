@@ -12,11 +12,12 @@ const DailyComponent = () => {
   const [healthTip, setHealthTip] = useState("");
   const [healthTitle, setHealthTitle] = useState("");
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const fetchTip = async () => {
       try {
-        const response = await fetch("https://mindcere.com/mc_tips");
+        const response = await fetch(`https://${API_URL}/mc_tips`);
         const data = await response.json();
         setHealthTitle(data.title)
         setHealthTip(data.content)

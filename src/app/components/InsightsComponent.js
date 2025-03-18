@@ -7,9 +7,10 @@ import InfoComponent from './InfoComponent'
 const InsightsComponent = () => {
 
   const [insights, setInsights] = useState([]);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() =>  {
-    fetch("https://mindcere.com/api/random-insights")
+    fetch(`https://${API_URL}/api/random-insights`)
     .then((response) => response.json())
       .then((data) => {
         setInsights(data);  // Set data into state
