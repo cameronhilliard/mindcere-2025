@@ -39,7 +39,7 @@ const DailyComponent = () => {
 >
     <div className=''>
         <h2 className="text-2xl sm:text-3xl font-bold">Daily Tip</h2>
-        <p className="text-lg sm:text-xl mt-2 sm:mt-4">{currentDate}</p>
+        <p className="text-lg sm:text-xl mt-2 sm:mt-4 font-bold">{currentDate}</p>
         <p className="text-lg sm:text-xl mt-2 sm:mt-4">{healthTitle}</p>
         <p className="text-lg sm:text-xl mt-2 sm:mt-4">{healthTip}</p>
     </div>
