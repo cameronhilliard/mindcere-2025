@@ -11,6 +11,7 @@ const DailyComponent = () => {
   
   const [healthTip, setHealthTip] = useState("");
   const [healthTitle, setHealthTitle] = useState("");
+  const [currentDate, setDate] = useState("");
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -21,6 +22,7 @@ const DailyComponent = () => {
         const data = await response.json();
         setHealthTitle(data.title)
         setHealthTip(data.content)
+        setDate(data.dailytip)
       } catch (error) {
         console.error("Failed to Fetch:", error)
       }
@@ -37,6 +39,7 @@ const DailyComponent = () => {
 >
     <div className=''>
         <h2 className="text-2xl sm:text-3xl font-bold">Daily Tip</h2>
+        <p className="text-lg sm:text-xl mt-2 sm:mt-4">{currentDate}</p>
         <p className="text-lg sm:text-xl mt-2 sm:mt-4">{healthTitle}</p>
         <p className="text-lg sm:text-xl mt-2 sm:mt-4">{healthTip}</p>
     </div>
