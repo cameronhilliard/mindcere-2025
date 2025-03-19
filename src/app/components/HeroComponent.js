@@ -5,8 +5,8 @@ import DailyComponent from './DailyComponent'
 const HeroComponent = () => {
   return (
     <section id="homepage" className='flex flex-col font-outfit pt-42 mx-auto items-center min-h-screen text-maintext'>
-        <h1 className='lg:text-5xl text-4xl font-exo'>MINDCERE</h1>
-        <p className='lg:text-2xl text-xl text-center pt-8  mx-auto'>AI-powered insights & tips for a healthier mind. Elevate focus, memory, and mental clarity.</p>
+        <h1 className='lg:text-5xl text-4xl font-outfit'>MindCere</h1>
+        <p className='lg:text-2xl text-xl px-5 text-center pt-8 mx-auto'>AI-powered insights & tips for a healthier mind. Elevate focus, memory, and mental clarity.</p>
 
         <DailyComponent />
 

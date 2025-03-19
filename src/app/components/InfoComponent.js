@@ -8,7 +8,7 @@ const InfoComponent = (props) => {
 
 >
 <div>
-    <h2 className='lg:text-2xl text-lg font-bold font-exo'>{props.prompts}</h2>
+    <h2 className='lg:text-2xl text-lg font-bold font-outfit'>{props.prompts}</h2>
     <p className='text-lg mt-4'>{props.response}</p>
 </div>
 </div>
