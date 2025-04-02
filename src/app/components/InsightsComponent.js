@@ -21,9 +21,9 @@ const InsightsComponent = () => {
   return (
     <section id="insights" className='flex flex-col font-outfit text-maintext py-32 p-6 items-center mx-auto'>
       <h1 className='text-4xl'>Insights</h1>
-      {insights.map((insight) => (
+      {insights.map((insight, index) => (
       <InfoComponent
-          key={insight.insights_id}
+          key={`${insight.insights_id}-${index}`}
           prompts={insight.prompt}
           response={insight.response}
         />
