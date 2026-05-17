@@ -22,6 +22,8 @@ const DailyComponent = () => {
     }
 
     const fetchTip = async () => {
+      setIsLoading(true);
+
       try {
         const response = await fetch(`https://${API_URL}/mc_tips`);
 
