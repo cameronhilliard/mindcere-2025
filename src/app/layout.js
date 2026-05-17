@@ -1,35 +1,24 @@
 import "./globals.css";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export const metadata = {
-  title: "MindCere",
-  description: "A calm brain-health companion for daily tips, reflection, and practical cognitive wellbeing habits.",
-  description: "AI-powered brain health insights and daily cognitive care rituals.",
+  title: "MindCere | Calm Focus AI",
+  description:
+    "A calm focus companion that turns brain-health insights into useful daily rituals, reflective prompts, and AI-guided reset plans.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="flex flex-col bg-background scroll-smooth">
+    <html lang="en" className="scroll-smooth bg-background">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com"/>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

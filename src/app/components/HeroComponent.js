@@ -1,71 +1,73 @@
 import Link from "next/link";
+import { ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import DailyComponent from "./DailyComponent";
+
+const signals = ["90-second reset", "Focus ritual", "Reflection prompt"];
 
 const HeroComponent = () => {
   return (
-    <section
-      id="homepage"
-      className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-24 pt-32 text-ink md:px-8 md:pt-40"
-    >
-      <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+    <section id="homepage" className="relative px-4 pb-20 pt-32 sm:px-6 md:pt-40 lg:pb-28">
+      <div className="absolute left-[-6rem] top-28 h-72 w-72 rounded-full bg-pond/50 blur-3xl" />
+      <div className="absolute right-[-9rem] top-48 h-96 w-96 rounded-full bg-clay/20 blur-3xl" />
+
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <div>
-          <p className="font-inter text-sm font-bold uppercase tracking-[0.24em] text-sage-700">
-            MindCere · Brain health companion
+          <p className="inline-flex rounded-full border border-moss/10 bg-white/55 px-4 py-2 font-inter text-xs font-black uppercase tracking-[0.28em] text-moss backdrop-blur">
+            Calm focus in a cabin-like workspace
           </p>
-          <h1 className="mt-6 max-w-3xl font-serif text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-navy md:text-7xl">
-            Gentle brain-health ideas for real life.
+          <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.96] tracking-[-0.06em] text-moss-dark sm:text-6xl md:text-7xl">
+            Meet the AI companion that helps your brain settle, choose, and begin.
           </h1>
-          <p className="mt-7 max-w-2xl text-xl leading-9 text-slate-700 md:text-2xl md:leading-10">
-            MindCere is a quiet place to read daily tips, reflect on cognitive wellbeing, and learn practical habits for focus, rest, and resilience.
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-stone sm:text-xl sm:leading-9">
+            MindCere now feels like a quiet forest studio: practical brain-health education, reflective prompts, and a usable focus AI that builds simple plans without adding pressure.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="#focus-ai"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-moss px-7 py-4 font-inter font-black text-sand shadow-xl shadow-moss/20 transition hover:-translate-y-1 hover:bg-moss-dark focus:outline-none focus:ring-4 focus:ring-moss/20"
+            >
+              Try Focus AI
+              <ArrowRightIcon className="h-5 w-5" />
+            </Link>
             <Link
               href="#daily-tip"
-              className="rounded-full bg-sage-700 px-7 py-4 text-center font-inter font-bold text-cream transition hover:bg-sage-800 focus:outline-none focus:ring-4 focus:ring-sage-200"
+              className="inline-flex items-center justify-center rounded-full border border-moss/15 bg-white/65 px-7 py-4 font-inter font-black text-moss-dark backdrop-blur transition hover:-translate-y-1 hover:bg-white focus:outline-none focus:ring-4 focus:ring-moss/15"
             >
-              Read today&apos;s tip
-            </Link>
-            <Link
-              href="#about"
-              className="rounded-full border border-sage-200 bg-white px-7 py-4 text-center font-inter font-bold text-navy transition hover:border-sage-300 hover:bg-sage-50 focus:outline-none focus:ring-4 focus:ring-sage-100"
-            >
-              Why I built this
+              Read today’s reset
             </Link>
           </div>
-      className="relative flex min-h-screen flex-col items-center overflow-hidden px-6 pb-24 pt-28 text-maintext md:pt-36"
-    >
-      <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
-      <div className="absolute right-0 top-1/3 h-96 w-96 translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl" />
-      <div className="absolute bottom-20 left-0 h-80 w-80 -translate-x-1/3 rounded-full bg-emerald-400/10 blur-3xl" />
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
-        <p className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.32em] text-cyan-100 backdrop-blur">
-          Brain health, reframed
-        </p>
-        <h1 className="mt-8 max-w-4xl text-5xl font-black tracking-tight text-white md:text-7xl">
-          Turn cognitive care into a daily ritual.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-200 md:text-2xl md:leading-10">
-          MindCere blends AI-generated education, reflective prompts, and simple routines into a calmer dashboard for learning how your brain thrives.
-        </p>
-
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="#insights"
-            className="rounded-full bg-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:-translate-y-1 hover:bg-cyan-200"
-          >
-            Explore insights
-          </Link>
-          <Link
-            href="#about"
-            className="rounded-full border border-white/15 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white/15"
-          >
-            Read the story
-          </Link>
+          <div className="mt-8 flex flex-col gap-3 text-sm font-bold text-stone sm:flex-row sm:flex-wrap">
+            {signals.map((signal) => (
+              <span key={signal} className="inline-flex items-center gap-2">
+                <CheckCircleIcon className="h-5 w-5 text-moss" />
+                {signal}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <DailyComponent />
+        <div className="grid gap-5">
+          <div className="noise-surface focus-card rounded-[2rem] border border-white/70 p-5 backdrop-blur md:p-7">
+            <div className="rounded-[1.5rem] bg-moss-dark p-5 text-sand shadow-2xl shadow-moss/20">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-sm font-black uppercase tracking-[0.24em] text-mint">Focus room</p>
+                <span className="h-3 w-3 rounded-full bg-clay shadow-lg shadow-clay/60" />
+              </div>
+              <p className="mt-8 text-4xl font-black tracking-[-0.05em] md:text-5xl">12 min</p>
+              <p className="mt-3 text-sm leading-6 text-sand/75">A gentle sprint with one clear task, two breath breaks, and a closing note.</p>
+              <div className="mt-6 grid grid-cols-3 gap-2">
+                {["Breathe", "Begin", "Reflect"].map((item) => (
+                  <span key={item} className="rounded-2xl bg-white/10 px-3 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <DailyComponent />
+        </div>
       </div>
     </section>
   );
