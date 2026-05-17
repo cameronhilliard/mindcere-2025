@@ -3,46 +3,22 @@
 @theme {
   --font-outfit: "Outfit", "sans-serif";
   --font-inter: "Inter", "sans-serif";
-  --font-exo: "Exo 2", "sans-serif";
   --font-serif: Georgia, "Times New Roman", serif;
-  --color-cream: #fbf7ef;
-  --color-ink: #233044;
-  --color-navy: #1d3557;
-  --color-sage-50: #f1f5ee;
-  --color-sage-100: #dfe8d8;
-  --color-sage-200: #c7d8bd;
-  --color-sage-700: #5f7f57;
-  --color-sage-800: #486641;
-  --color-sky-soft: #dcecf2;
-  --color-header: #5f7f57;
-  --color-background: #fbf7ef;
-  --color-buttonbackground: #5f7f57;
-  --color-subtext: #64748b;
-  --color-maintext: #233044;
-  --color-card: #ffffff;
-  --color-glow: #dcecf2;
+  --color-background: #f4efe6;
+  --color-foreground: #18261f;
+  --color-moss: #355e4a;
+  --color-moss-dark: #183a2b;
+  --color-mint: #dcebdd;
+  --color-clay: #c87855;
+  --color-sand: #f8f2e8;
+  --color-pond: #b9d7d1;
+  --color-stone: #68756f;
+  --color-ink: #18261f;
 }
 
 :root {
-  --background: #fbf7ef;
-  --foreground: #233044;
-}
-
-:root {
-  --background: #fbf7ef;
-  --foreground: #233044;
-  --color-header: #67e8f9;
-  --color-background: #020617;
-  --color-buttonbackground: #67e8f9;
-  --color-subtext: #94a3b8;
-  --color-maintext: #f8fafc;
-  --color-card: #0f172a;
-  --color-glow: #22d3ee;
-}
-
-:root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #f4efe6;
+  --foreground: #18261f;
 }
 
 * {
@@ -50,38 +26,45 @@
 }
 
 html {
+  scroll-behavior: smooth;
   background: var(--background);
 }
 
 body {
   min-height: 100vh;
+  margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(223, 232, 216, 0.72), transparent 30rem),
-    linear-gradient(180deg, #fbf7ef 0%, #f7efe3 52%, #eef5ef 100%);
-body {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(34, 211, 238, 0.2), transparent 34rem),
-    radial-gradient(circle at 80% 20%, rgba(217, 70, 239, 0.16), transparent 30rem),
-    linear-gradient(135deg, #020617 0%, #08111f 46%, #111827 100%);
+    radial-gradient(circle at 12% 18%, rgba(185, 215, 209, 0.58), transparent 23rem),
+    radial-gradient(circle at 92% 8%, rgba(200, 120, 85, 0.18), transparent 24rem),
+    linear-gradient(135deg, #f8f2e8 0%, #edf3e9 48%, #e7f0ed 100%);
   color: var(--foreground);
   font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
 }
 
-::selection {
-  background: rgba(199, 216, 189, 0.75);
 body::before {
   pointer-events: none;
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, black, transparent 82%);
+  background-image:
+    linear-gradient(rgba(24, 58, 43, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 58, 43, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 78%);
 }
 
 ::selection {
-  background: rgba(103, 232, 249, 0.35);
+  background: rgba(53, 94, 74, 0.22);
+}
+
+.focus-card {
+  box-shadow: 0 24px 80px rgba(24, 58, 43, 0.11);
+}
+
+.noise-surface {
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.38)),
+    radial-gradient(circle at 16px 16px, rgba(24, 58, 43, 0.08) 1px, transparent 1px);
+  background-size: auto, 24px 24px;
 }
