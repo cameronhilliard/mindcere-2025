@@ -1,56 +1,116 @@
 "use client"
 
-import React from 'react'
-import { useState, useEffect} from "react";
-import * as motion from "motion/react-client"
+import { useEffect, useState } from "react";
 
-
+const fallbackTip = {
+  title: "Start with a softer signal",
+  content:
+    "Before asking your brain to sprint, give it a small cue: drink water, take three slow breaths, and write down the one task that matters most right now.",
+  dailytip: "Today&apos;s gentle reset",
+};
 
 const DailyComponent = () => {
-
-  
-  const [healthTip, setHealthTip] = useState("");
-  const [healthTitle, setHealthTitle] = useState("");
-  const [currentDate, setDate] = useState("");
+  const [tip, setTip] = useState(fallbackTip);
+  const [status, setStatus] = useState("offline");
+  const [isLoading, setIsLoading] = useState(Boolean(process.env.NEXT_PUBLIC_API_URL));
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
+    if (!API_URL) {
+      setIsLoading(false);
+      setStatus("offline");
+      return;
+    }
+
+    const controller = new AbortController();
+
     const fetchTip = async () => {
+      setIsLoading(true);
+
       try {
-        const response = await fetch(`https://${API_URL}/mc_tips`);
+        const response = await fetch(`https://${API_URL}/mc_tips`, {
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error(`Daily tip request failed with status ${response.status}`);
+        }
+
         const data = await response.json();
-        setHealthTitle(data.title)
-        setHealthTip(data.content)
-        setDate(data.dailytip)
+        setTip({
+          title: data.title || fallbackTip.title,
+          content: data.content || fallbackTip.content,
+          dailytip: data.dailytip || fallbackTip.dailytip,
+        });
+        setStatus("live");
       } catch (error) {
-        console.error("Failed to Fetch:", error)
+        if (error.name !== "AbortError") {
+          console.error("Failed to fetch daily tip:", error);
+          setStatus("error");
+          setTip(fallbackTip);
+        }
+      } finally {
+        setIsLoading(false);
       }
     };
+
     fetchTip();
-  }, []);
+
+    return () => controller.abort();
+  }, [API_URL]);
+
+  const statusMessage = {
+    live: "Loaded from the MindCere feed.",
+    offline: "Offline edition while the hosted database is paused.",
+    error: "Using a saved tip because the live feed is unavailable.",
+  }[status];
 
   return (
-    <motion.div
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{ opacity: 1, scale: 1 }}
-    whileInView={{ duration: 0.5, ease: "fadeIn" }}
-    className="lg:w-1/3 w-11/12 h-2/4 mt-8 p-8 bg-card shadow-lg rounded-lg shadow-glow/50 mx-auto"
->
-    <div className=''>
-        <h2 className="text-2xl sm:text-3xl font-bold">Daily Tip</h2>
-        <p className="text-lg sm:text-xl mt-2 sm:mt-4 font-bold">{currentDate}</p>
-        <p className="text-lg sm:text-xl mt-2 sm:mt-4">{healthTitle}</p>
-        <p className="text-lg sm:text-xl mt-2 sm:mt-4">{healthTip}</p>
-    </div>
-    </motion.div>
+    <article
+      id="daily-tip"
+      className="rounded-[2rem] border border-sage-100 bg-white p-7 shadow-[0_24px_80px_rgba(29,53,87,0.08)] md:p-9"
+    >
+      <div className="flex flex-col gap-4 border-b border-sage-100 pb-6 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="font-inter text-xs font-bold uppercase tracking-[0.24em] text-sage-700">
+            Daily tip
+          </p>
+          <h2 className="mt-2 font-serif text-3xl font-semibold tracking-[-0.03em] text-navy">
+            A calmer start
+          </h2>
+        </div>
+        <span className="w-fit rounded-full bg-sky-soft px-4 py-2 font-inter text-xs font-bold uppercase tracking-[0.16em] text-navy">
+          {isLoading ? "Loading" : status === "live" ? "Live" : "Saved"}
+        </span>
+      </div>
 
+      {isLoading ? (
+        <div className="mt-7 space-y-4" aria-live="polite" aria-busy="true">
+          <div className="h-4 w-1/2 animate-pulse rounded-full bg-sage-100" />
+          <div className="h-7 w-3/4 animate-pulse rounded-full bg-sage-100" />
+          <div className="space-y-3 pt-2">
+            <div className="h-4 animate-pulse rounded-full bg-sage-100" />
+            <div className="h-4 w-5/6 animate-pulse rounded-full bg-sage-100" />
+            <div className="h-4 w-2/3 animate-pulse rounded-full bg-sage-100" />
+          </div>
+        </div>
+      ) : (
+        <div className="mt-7">
+          <p className="font-inter text-sm font-bold uppercase tracking-[0.18em] text-sage-700">
+            {tip.dailytip}
+          </p>
+          <h3 className="mt-3 font-serif text-3xl font-semibold leading-tight tracking-[-0.03em] text-navy">
+            {tip.title}
+          </h3>
+          <p className="mt-5 text-lg leading-8 text-slate-700">{tip.content}</p>
+          <p className="mt-6 rounded-2xl bg-cream px-4 py-3 text-sm leading-6 text-slate-600" role={status === "error" ? "status" : undefined}>
+            {statusMessage}
+          </p>
+        </div>
+      )}
+    </article>
+  );
+};
 
-  
-  
-    
-  
-  )
-}
-
-export default DailyComponent
+export default DailyComponent;
