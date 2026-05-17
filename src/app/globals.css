@@ -4,47 +4,46 @@
   --font-outfit: "Outfit", "sans-serif";
   --font-inter: "Inter", "sans-serif";
   --font-exo: "Exo 2", "sans-serif";
-  --font-serif: Georgia, "Times New Roman", serif;
-  --color-cream: #fbf7ef;
-  --color-ink: #233044;
-  --color-navy: #1d3557;
-  --color-sage-50: #f1f5ee;
-  --color-sage-100: #dfe8d8;
-  --color-sage-200: #c7d8bd;
-  --color-sage-700: #5f7f57;
-  --color-sage-800: #486641;
-  --color-sky-soft: #dcecf2;
-  --color-header: #5f7f57;
-  --color-background: #fbf7ef;
-  --color-buttonbackground: #5f7f57;
-  --color-subtext: #64748b;
-  --color-maintext: #233044;
-  --color-card: #ffffff;
-  --color-glow: #dcecf2;
+  --color-header: #67e8f9;
+  --color-background: #020617;
+  --color-buttonbackground: #67e8f9;
+  --color-subtext: #94a3b8;
+  --color-maintext: #f8fafc;
+  --color-card: #0f172a;
+  --color-glow: #22d3ee;
 }
 
 :root {
-  --background: #fbf7ef;
-  --foreground: #233044;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  background: var(--background);
-}
-
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(223, 232, 216, 0.72), transparent 30rem),
-    linear-gradient(180deg, #fbf7ef 0%, #f7efe3 52%, #eef5ef 100%);
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.2), transparent 34rem),
+    radial-gradient(circle at 80% 20%, rgba(217, 70, 239, 0.16), transparent 30rem),
+    linear-gradient(135deg, #020617 0%, #08111f 46%, #111827 100%);
   color: var(--foreground);
   font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
 }
 
+body::before {
+  pointer-events: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
 ::selection {
-  background: rgba(199, 216, 189, 0.75);
+  background: rgba(103, 232, 249, 0.35);
 }
