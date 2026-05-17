@@ -1,6 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import HeaderComponent from "./components/HeaderComponent";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -14,7 +12,7 @@ import HeaderComponent from "./components/HeaderComponent";
 
 export const metadata = {
   title: "MindCere",
-  description: "Free Brain Health App that focuses on bettering your brain.",
+  description: "A calm brain-health companion for daily tips, reflection, and practical cognitive wellbeing habits.",
 };
 
 export default function RootLayout({ children }) {
