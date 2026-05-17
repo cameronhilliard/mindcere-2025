@@ -1,34 +1,49 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
-
-
 @theme {
   --font-outfit: "Outfit", "sans-serif";
-  --font-inter: "Inter", "sans-serif"; 
-  --font-exo: "Exo 2", "sans-serif"; 
-  --color-header: #FF6F61;
-  --color-background: #1A1A2E;
-  --color-buttonbackground: #00A3FF;
-  --color-subtext: #333333;
-  --color-maintext: #F5F7FA;
-  --color-card: #212121;
-  --color-glow:  #A855F7;
+  --font-inter: "Inter", "sans-serif";
+  --font-exo: "Exo 2", "sans-serif";
+  --color-header: #67e8f9;
+  --color-background: #020617;
+  --color-buttonbackground: #67e8f9;
+  --color-subtext: #94a3b8;
+  --color-maintext: #f8fafc;
+  --color-card: #0f172a;
+  --color-glow: #22d3ee;
 }
 
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+}
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+* {
+  box-sizing: border-box;
+}
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.2), transparent 34rem),
+    radial-gradient(circle at 80% 20%, rgba(217, 70, 239, 0.16), transparent 30rem),
+    linear-gradient(135deg, #020617 0%, #08111f 46%, #111827 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  pointer-events: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+::selection {
+  background: rgba(103, 232, 249, 0.35);
 }
