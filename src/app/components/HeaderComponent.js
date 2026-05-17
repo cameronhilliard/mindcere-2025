@@ -1,22 +1,21 @@
-'use client'
-import Link from 'next/link'
-import React from 'react'
-import Menu from './Menu'
+"use client"
+
+import Link from "next/link";
+import Menu from "./Menu";
 
 const HeaderComponent = () => {
   return (
-    <header className='flex flex-row mx-auto justify-between mt-4 sticky top-0'>
-        <h1 className='text-maintext mt-8 text-2xl  ml-12 font-outfit pb-8'>MindCere</h1>
-        <nav className='mt-8 mr-12'>
-        {/* <ul className='flex flex-row right mt-8 text-lg text-maintext font-outfit'>
-            <Link className='pr-6' href="#home">Home</Link>
-            <Link className='pr-6' href="#insights">Insights</Link>
-            <Link className='pr-6' href="#about">About</Link>
-        </ul> */}
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-sage-100 bg-cream/95 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-8">
+        <Link href="#homepage" className="font-serif text-2xl font-semibold tracking-[-0.03em] text-navy">
+          MindCere
+        </Link>
+        <nav aria-label="Primary navigation">
           <Menu />
         </nav>
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default HeaderComponent
+export default HeaderComponent;
