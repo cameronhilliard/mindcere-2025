@@ -26,6 +26,11 @@
 :root {
   --background: #fbf7ef;
   --foreground: #233044;
+}
+
+:root {
+  --background: #fbf7ef;
+  --foreground: #233044;
   --color-header: #67e8f9;
   --color-background: #020617;
   --color-buttonbackground: #67e8f9;

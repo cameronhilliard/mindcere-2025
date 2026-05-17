@@ -8,6 +8,12 @@ const fallbackTip = {
   content:
     "Before asking your brain to sprint, give it a small cue: drink water, take three slow breaths, and write down the one task that matters most right now.",
   dailytip: "Today’s gentle reset",
+
+const fallbackTip = {
+  title: "Start with a softer signal",
+  content:
+    "Before asking your brain to sprint, give it a small cue: drink water, take three slow breaths, and write down the one task that matters most right now.",
+  dailytip: "Today’s gentle reset",
 import * as motion from "motion/react-client";
 
 const fallbackTip = {
@@ -29,6 +35,9 @@ const DailyComponent = () => {
       setTip(fallbackTip);
       return;
     }
+
+    let isMounted = true;
+
   const [status, setStatus] = useState("curated");
 
     let isMounted = true;
@@ -83,6 +92,12 @@ const DailyComponent = () => {
     };
   }, []);
   }, [API_URL]);
+
+  const statusMessage = {
+    live: "Loaded from the MindCere feed.",
+    offline: "Offline edition: live API calls are turned off while hosting and MongoDB are paused.",
+    error: "Using a saved tip because the live feed is unavailable.",
+  }[status];
 
   const statusMessage = {
     live: "Loaded from the MindCere feed.",

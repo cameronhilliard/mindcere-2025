@@ -65,6 +65,19 @@ const InsightsComponent = () => {
         if (isMounted) {
           setIsLoading(false);
         }
+
+        setInsights(data);
+        setSource("live");
+      } catch (error) {
+        if (isMounted) {
+          console.error("Failed to fetch insights:", error);
+          setSource("error");
+          setInsights(fallbackInsights);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
 import InfoComponent from "./InfoComponent";
 
 const fallbackInsights = [
@@ -124,6 +137,12 @@ const InsightsComponent = () => {
     };
   }, []);
   }, [API_URL]);
+
+  const sourceMessage = {
+    live: "Live insights loaded from the MindCere API.",
+    offline: "Live API calls are intentionally off while hosting and MongoDB are paused, so these saved reflections keep the app useful.",
+    error: "The live feed could not be reached, so MindCere is showing saved reflections.",
+  }[source];
 
   const sourceMessage = {
     live: "Live insights loaded from the MindCere API.",
