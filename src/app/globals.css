@@ -4,6 +4,28 @@
   --font-outfit: "Outfit", "sans-serif";
   --font-inter: "Inter", "sans-serif";
   --font-exo: "Exo 2", "sans-serif";
+  --font-serif: Georgia, "Times New Roman", serif;
+  --color-cream: #fbf7ef;
+  --color-ink: #233044;
+  --color-navy: #1d3557;
+  --color-sage-50: #f1f5ee;
+  --color-sage-100: #dfe8d8;
+  --color-sage-200: #c7d8bd;
+  --color-sage-700: #5f7f57;
+  --color-sage-800: #486641;
+  --color-sky-soft: #dcecf2;
+  --color-header: #5f7f57;
+  --color-background: #fbf7ef;
+  --color-buttonbackground: #5f7f57;
+  --color-subtext: #64748b;
+  --color-maintext: #233044;
+  --color-card: #ffffff;
+  --color-glow: #dcecf2;
+}
+
+:root {
+  --background: #fbf7ef;
+  --foreground: #233044;
   --color-header: #67e8f9;
   --color-background: #020617;
   --color-buttonbackground: #67e8f9;
@@ -22,6 +44,15 @@
   box-sizing: border-box;
 }
 
+html {
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(223, 232, 216, 0.72), transparent 30rem),
+    linear-gradient(180deg, #fbf7ef 0%, #f7efe3 52%, #eef5ef 100%);
 body {
   min-height: 100vh;
   background:
@@ -32,6 +63,8 @@ body {
   font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
 }
 
+::selection {
+  background: rgba(199, 216, 189, 0.75);
 body::before {
   pointer-events: none;
   content: "";

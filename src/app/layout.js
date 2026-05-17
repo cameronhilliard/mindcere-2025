@@ -12,6 +12,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "MindCere",
+  description: "A calm brain-health companion for daily tips, reflection, and practical cognitive wellbeing habits.",
   description: "AI-powered brain health insights and daily cognitive care rituals.",
 };
 
