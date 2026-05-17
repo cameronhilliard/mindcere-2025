@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HeaderComponent from "./components/HeaderComponent";
 import HeroComponent from "./components/HeroComponent";
 import InsightsComponent from "./components/InsightsComponent";
@@ -12,7 +11,6 @@ export default function Home() {
       <HeroComponent />
       <InsightsComponent />
       <AboutComponent />
-      
     </main>
   );
 }
